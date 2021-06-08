@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "GameEnd",
-  "duration": 0.0,
+  "soundFile": "GameEnd.ogg",
+  "duration": 4.013005,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

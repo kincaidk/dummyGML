@@ -12,13 +12,13 @@ if (on_ground) {
 	
 	rotationAngle = 0;
 } else {
-	vsp += grv;
-	rotationAngle -= rotationSpeed;
+	vsp += grv * !paused;
+	rotationAngle -= rotationSpeed * !paused;
 }
 
 
 //Handle jump
-if (jump) {
+if (jump) && (!paused){
 	vsp = jumpSpeed;
 
 	jumpSound = audio_play_sound(Jump, 1, false);
