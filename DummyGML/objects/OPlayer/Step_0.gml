@@ -52,7 +52,7 @@ if (spikeyDeath) {
 	alarm[0] = 1;
 } 
 // Move to the right;
-//x += hsp;
+x += hsp;
 
 
 //Handle horizontal collision (DEATH)
