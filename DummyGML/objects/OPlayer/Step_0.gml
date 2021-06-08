@@ -1,74 +1,19 @@
-/// @description 
-
-/*
-on_ground = place_meeting(x, y + 1, OGround);
-var jump = keyboard_check_pressed(vk_space) and on_ground;
-
-if (jump){
-	vsp = jumpSpeed;
-	on_ground = false;
-	show_debug_message("trying to jump");
-}
-
-x += hsp;
-
-if (on_ground) {
-	vsp = 0;
-} else {
-	vsp += grv;
-}
-
-//check collision up/down
-collidedObject = collision_line(x, y, x, y + vsp, OGround, false, false);
-if (collidedObject == noone) {
-	//y += vsp;
-} else {
-	if (vsp < 0){
-		//collision above
-		//vsp = 0;
-		//y = collidedObject.y + collidedObject.sprite_height;
-		show_debug_message("colliding with something above");
-	} else {
-		//collision below	
-		//y = collidedObject.y -1;
-		//on_ground = true;
-		//vsp = 0;
-	}
-	
-}
-y += vsp;
-//horizontal collision detection
-for (var i = 1; i < hsp; i++) {
-	var die = (place_meeting(x + i, y, OBlock));
-	if (die) {
-		instance_destroy(id);	
-	}
-}
-*/
-///////////////////////////////////////////////////////////////////
 
 
 //Set variables
 var on_ground = place_meeting(x, y + 1, OGround);
-var jump = keyboard_check_pressed(vk_space) and on_ground;
+var jump = keyboard_check(vk_space) and on_ground;
 
-
-// Move to the right;
-x += hsp;
-
-
-//Handle horizontal collision (DEATH)
-var imminentHorizontalGroundCollision = place_meeting(x + hsp, y, OGround);
-if (imminentHorizontalGroundCollision) {
-	instance_destroy();
-}
 
 
 //Update vsp depending on if 
 if (on_ground) {
 	vsp = 0;
+	
+	rotationAngle = 0;
 } else {
 	vsp += grv;
+	rotationAngle -= rotationSpeed;
 }
 
 
@@ -96,15 +41,29 @@ if (imminentVerticalGroundCollision) {
 	vsp = 0;
 }
 
+var spikeyDeath = place_meeting(x + hsp, y + vsp, OSpike);
+if (spikeyDeath) {
+	alarm[0] = 1;
+} 
+// Move to the right;
+x += hsp;
 
+
+//Handle horizontal collision (DEATH)
+var imminentHorizontalGroundCollision = place_meeting(x + hsp, y, OBlock);
+if (imminentHorizontalGroundCollision) {
+	alarm[0] = 1;
+}
 //Move vertically
 y += vsp;
 
 
+if (y > room_height - .5 * sprite_get_height(tester)) {
+	alarm[0] = 1;	
+}
 
 
-
-
+sub_img += 0.25;
 
 
 
