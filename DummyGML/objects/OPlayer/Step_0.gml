@@ -20,8 +20,10 @@ if (on_ground) {
 //Handle jump
 if (jump) {
 	vsp = jumpSpeed;
-}
 
+	jumpSound = audio_play_sound(Jump, 1, false);
+	audio_sound_set_track_position(jumpSound, .3);
+}
 
 //Handle vertical collision
 var imminentVerticalGroundCollision = place_meeting(x, y + vsp, OGround);
@@ -36,6 +38,10 @@ if (imminentVerticalGroundCollision) {
 		while (not place_meeting(x, y + 1, OGround)) {
 			y++;
 		}
+		//if (sound != undefined) && (audio_is_playing(sound)){
+			//audio_stop_sound(sound);
+		//}
+		//landSound = audio_play_sound(Land, 1, false);
 	}
 	
 	vsp = 0;
