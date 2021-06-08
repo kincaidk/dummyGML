@@ -12,9 +12,11 @@ if (pause) {
 	draw_text(windowWidth / 2, windowHeight / 2, "PAUSED");	
 }
 
-draw_set_color(c_maroon);
-draw_text(windowWidth / 2, 20, "ATTEMPTS:  " + string(global.attempts));
-draw_set_color(c_white);
+if (room == Level1) {
+	draw_set_color(c_maroon);
+	draw_text(windowWidth / 2, 20, "ATTEMPTS:  " + string(global.attempts));
+	draw_set_color(c_white);
+}
 
 //When player dies, this black rectangle fades in. (It covers the whole screen)
 draw_set_alpha(blackRectangleAlpha)
