@@ -4,7 +4,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "OGround",
+    "path": "objects/OGround/OGround.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
