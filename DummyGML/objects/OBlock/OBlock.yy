@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "SGround",
+    "path": "sprites/SGround/SGround.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

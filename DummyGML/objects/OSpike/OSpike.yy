@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "SSpike",
+    "path": "sprites/SSpike/SSpike.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
