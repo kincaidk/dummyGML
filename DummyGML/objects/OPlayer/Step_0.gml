@@ -69,7 +69,7 @@ if (y > room_height - .5 * sprite_get_height(tester)) {
 }
 
 
-sub_img += 0.25;
+sub_img += 0.20;
 
 
 
