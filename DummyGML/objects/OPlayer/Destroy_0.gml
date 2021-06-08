@@ -5,4 +5,7 @@ part_emitter_burst(global.pSystem, global.pEmitter, global.death_particle, death
 var deathSound = audio_play_sound(GameEnd, 1, false);
 audio_sound_gain(deathSound, 0.20, 0);
 
-
+//Restarts room after a delay. Increments global.attempts.
+with (OGameManager) {
+	alarm[0] = room_speed * 1.5;
+}
