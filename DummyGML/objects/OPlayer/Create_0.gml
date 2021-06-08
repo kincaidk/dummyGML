@@ -5,3 +5,4 @@ mask_index = SPlayer;
 image_speed = 1;
 show_debug_message(string(sprite_width));
 sub_img = 0;
+reverseXScale = 1;
