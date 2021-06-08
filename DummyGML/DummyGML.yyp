@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"OGameManager","path":"objects/OGameManager/OGameManager.yy",},"order":7,},
     {"id":{"name":"OTester","path":"objects/OTester/OTester.yy",},"order":5,},
     {"id":{"name":"OSpike","path":"objects/OSpike/OSpike.yy",},"order":1,},
     {"id":{"name":"OGround","path":"objects/OGround/OGround.yy",},"order":4,},
