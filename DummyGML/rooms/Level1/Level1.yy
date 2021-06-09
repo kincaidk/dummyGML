@@ -240,7 +240,6 @@
     {"name":"inst_663A1D7A","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_448D10E6","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_67524F6E","path":"rooms/Level1/Level1.yy",},
-    {"name":"inst_442F0BA7","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_B8B5B28","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_6EE85DBC","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_B958EA9","path":"rooms/Level1/Level1.yy",},
