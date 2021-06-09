@@ -1,4 +1,5 @@
 /// @description Increment global.attempts.
-global.attempts++;
-room_restart();
-
+if (room != StartRoom) {
+	global.attempts++;
+	room_restart();
+}
