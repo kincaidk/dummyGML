@@ -1,3 +1,5 @@
 /// @description Start music
-global.MUSIC = audio_play_sound(Music, 1, true);
-audio_sound_gain(global.MUSIC, .75, 0);
+if (room == Level1) {
+	global.MUSIC = audio_play_sound(Music, 1, true);
+	audio_sound_gain(global.MUSIC, .75, 0);
+}

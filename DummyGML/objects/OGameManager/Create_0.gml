@@ -16,6 +16,6 @@ part_type_size(_p1, 0.1, 1.5, 0.05, 0);
 part_type_color_mix(_p1, c_grey, c_aqua)
 global.death_particle = _p1;
 
-global.attempts = 0;
+global.attempts = 1;
 
 blackRectangleAlpha = 0;
