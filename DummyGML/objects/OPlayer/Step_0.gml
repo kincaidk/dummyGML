@@ -20,7 +20,13 @@ if (on_ground) {
 //Handle jump
 if (jump) && (!paused){
 	vsp = jumpSpeed;
-
+	//check to see if player jumped while inside safe wall
+	//if so, player death.
+	var thing = collision_rectangle(x,y, x + sprite_get_width(SPlayer), y + sprite_get_height(SPlayer), OgroundSafe, true, false);
+	if (thing != noone) {
+		alarm[0] = 1;
+	}
+	
 	jumpSound = audio_play_sound(Jump, 1, false);
 	audio_sound_set_track_position(jumpSound, .3);
 }
