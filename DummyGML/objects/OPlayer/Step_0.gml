@@ -58,7 +58,7 @@ if (spikeyDeath) {
 	alarm[0] = 1;
 } 
 // Move to the right;
-x += hsp;
+x += hsp + boostValue;
 
 
 //Handle horizontal collision (DEATH)
@@ -67,7 +67,7 @@ if (imminentHorizontalGroundCollision) {
 	alarm[0] = 1;
 }
 //Move vertically
-y += vsp;
+y += vsp + yboostValue;
 
 
 if (y > room_height - .5 * sprite_get_height(tester)) {
@@ -78,6 +78,22 @@ if (y > room_height - .5 * sprite_get_height(tester)) {
 sub_img += 0.20;
 
 
-
+//handle boost pad
+var boostPad = instance_place(x, y + vsp, OSpeedBoost);
+if (boostPad) {
+	boosted = true;
+	boostValue = boostPad.XBoostValue;
+	yboostValue = boostPad.YBoostValue
+	deceleration = .005;
+}
+if (boosted) {
+	boostValue = max(0, boostValue  * .98);
+	yboostValue = max(0, yboostValue  * .98);
+	//check if we're still boosted
+	if (round(boostValue) == 0) {
+		boostValue = 0;
+		boosted = false;
+	}	
+}
 
 
