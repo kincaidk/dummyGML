@@ -33,6 +33,8 @@ if (jumpPad) {
 		image_speed = 3;	
 		image_index = 1;
 	}
+	var soundfx = audio_play_sound(JumpPad, 1, false);
+	audio_sound_gain(soundfx, .25, 0);
 }
 
 //Handle jump
