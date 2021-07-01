@@ -15,6 +15,7 @@
     {"id":{"name":"OGravUp","path":"objects/OGravUp/OGravUp.yy",},"order":10,},
     {"id":{"name":"OGravDown","path":"objects/OGravDown/OGravDown.yy",},"order":11,},
     {"id":{"name":"SScreen","path":"sprites/SScreen/SScreen.yy",},"order":11,},
+    {"id":{"name":"SpeedBoost","path":"sounds/SpeedBoost/SpeedBoost.yy",},"order":8,},
     {"id":{"name":"GameEnd","path":"sounds/GameEnd/GameEnd.yy",},"order":4,},
     {"id":{"name":"Music","path":"sounds/Music/Music.yy",},"order":0,},
     {"id":{"name":"SPlayer","path":"sprites/SPlayer/SPlayer.yy",},"order":0,},
