@@ -1,7 +1,7 @@
 
 
 //Set variables
-var on_ground = place_meeting(x, y + 1, OGround);
+var on_ground = place_meeting(x, y + sign(placeMeetingNum), OGround);
 var jump = keyboard_check(vk_space) and on_ground;
 
 
@@ -12,14 +12,21 @@ if (on_ground) {
 	
 	rotationAngle = 0;
 } else {
-	vsp += grv * !paused;
+	if (gravInverse) {
+		vsp -= grv * !paused;
+	} else {
+		vsp += grv * !paused;	
+	}
+	
+	show_debug_message("adding to vsp: " + string(grv * !paused));
+	show_debug_message("vsp: " + string(vsp));
 	rotationAngle -= rotationSpeed * !paused;
 }
 
 
 //Handle jump
 if (jump) && (!paused){
-	vsp = jumpSpeed;
+	vsp = jumpSpeed * sign(placeMeetingNum);
 	//check to see if player jumped while inside safe wall
 	//if so, player death.
 	var thing = collision_rectangle(x,y, x + sprite_get_width(SPlayer), y + sprite_get_height(SPlayer), OgroundSafe, true, false);
@@ -65,9 +72,17 @@ x += hsp + boostValue;
 var imminentHorizontalGroundCollision = place_meeting(x + hsp, y, OBlock);
 if (imminentHorizontalGroundCollision) {
 	alarm[0] = 1;
+	show_debug_message("IMMINENT HORZONTAL COLLISION");
 }
 //Move vertically
+
+	//show_debug_message("current y: " + string(y) + " vsp: " + string(vsp) + " new y: " + string(y - vsp));
+	//show_debug_message("Grounded? " + string(on_ground));
+	//y -= vsp + yboostValue;
+
 y += vsp + yboostValue;
+
+
 
 
 if (y > room_height - .5 * sprite_get_height(tester)) {
@@ -96,4 +111,18 @@ if (boosted) {
 	}	
 }
 
+//handle grav up
+var gravUpPad = instance_place(x, y + vsp, OGravUp);
+if (gravUpPad && !gravInverse) {
+	gravInverse = true;	
+	placeMeetingNum = -1;
+	imgYScale = -imgYScale;
+}
 
+//handle grav down
+var gravDownPad = instance_place(x, y + vsp, OGravDown);
+if (gravDownPad && gravInverse) {
+	gravInverse = false;
+	placeMeetingNum = 1;
+	imgYScale = abs(imgYScale);
+}
