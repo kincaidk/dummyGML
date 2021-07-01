@@ -57,8 +57,8 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"StartRoom","path":"rooms/StartRoom/StartRoom.yy",},},
-    {"roomId":{"name":"testRoom","path":"rooms/testRoom/testRoom.yy",},},
     {"roomId":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
+    {"roomId":{"name":"testRoom","path":"rooms/testRoom/testRoom.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
