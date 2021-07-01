@@ -20,7 +20,13 @@ if (on_ground) {
 	
 	show_debug_message("adding to vsp: " + string(grv * !paused));
 	show_debug_message("vsp: " + string(vsp));
-	rotationAngle -= rotationSpeed * !paused;
+	
+	//Handles the direction that the jump rotates in.
+	if (gravInverse) {
+		rotationAngle += rotationSpeed * !paused;
+	} else {
+		rotationAngle -= rotationSpeed * !paused;
+	}
 }
 
 //handle jump pad
@@ -97,13 +103,11 @@ y += vsp + yboostValue;
 
 
 
-
-if (y > room_height - .5 * sprite_get_height(tester)) {
-	alarm[0] = 1;	
+// Kill player when they go out of bounds.
+if (y > global.yDeathBottom || y < global.yDeathTop) {
+	alarm[0] = 1;
 }
 
-
-sub_img += 0.20;
 
 
 //handle boost pad
@@ -129,7 +133,7 @@ var gravUpPad = instance_place(x, y + vsp, OGravUp);
 if (gravUpPad && !gravInverse) {
 	gravInverse = true;	
 	placeMeetingNum = -1;
-	imgYScale = -imgYScale;
+	imgYScale = -abs(imgYScale);
 }
 
 //handle grav down

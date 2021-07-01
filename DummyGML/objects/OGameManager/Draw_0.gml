@@ -1,6 +1,8 @@
 /// @description draw death zone line
 
-draw_line_color(0, global.yDeath, room_width, global.yDeath, c_red, c_red);
+draw_line_color(0, global.yDeathBottom, room_width, global.yDeathBottom, c_red, c_red);
+draw_line_color(0, global.yDeathTop, room_width, global.yDeathTop, c_red, c_red);
+
 /*
 
 draw_set_font(FgridText);

@@ -19,8 +19,19 @@ part_type_size(_p1, 0.1, 0.5, 0, 0);
 part_type_alpha3(_p1, 0.5, 0.3, 0.1);
 global.gravityParticleUp = _p1;
 
+_p1 = part_type_create();
+part_type_alpha3(_p1, 1, 0.5, 0);
+part_type_life(_p1, 10, 11);
+part_type_color3(_p1, c_yellow, c_red, c_maroon);
+part_type_direction(_p1, 20, 20, 0, 0.2);
+part_type_speed(_p1, 10, 12, 0, 0);
+part_type_shape(_p1, pt_shape_spark);
+part_type_size(_p1, 0.4, 0.5, 0, 0);
+global.speedBoostParticle = _p1;
 
-global.yDeath = room_height - .5 * sprite_get_height(tester);
+
+global.yDeathBottom = room_height - 0.5 * sprite_get_height(tester);
+global.yDeathTop = 0.5 * sprite_get_height(tester);
 
 global.pSystem = part_system_create();
 global.pEmitter = part_emitter_create(global.pSystem);
