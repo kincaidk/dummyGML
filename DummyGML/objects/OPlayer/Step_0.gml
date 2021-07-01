@@ -114,7 +114,7 @@ if (y > global.yDeathBottom || y < global.yDeathTop) {
 var boostPad = instance_place(x, y + vsp, OSpeedBoost);
 if (boostPad && !boosted) {
 	var boostSoundEffect = audio_play_sound(SpeedUp, 1, false);
-	audio_sound_gain(boostSoundEffect, 0.5, 0);
+	audio_sound_gain(boostSoundEffect, 0.2, 0);
 	
 	boosted = true;
 	boostValue = boostPad.XBoostValue;
