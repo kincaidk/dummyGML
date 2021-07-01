@@ -6,7 +6,7 @@ var jump = keyboard_check(vk_space) and on_ground;
 
 
 
-//Update vsp depending on if 
+//Update vsp depending on if grounded
 if (on_ground) {
 	vsp = 0;
 	
@@ -23,6 +23,19 @@ if (on_ground) {
 	rotationAngle -= rotationSpeed * !paused;
 }
 
+//handle jump pad
+var jumpPad = instance_place(x, y + vsp, OJumpPad);
+if (jumpPad) {
+	show_debug_message("touched jumpboost " + string(jumpPad.YBoost) + " being added to: " + string(vsp));
+	vsp -= jumpPad.YBoost * sign(placeMeetingNum);
+	on_ground = false;
+	with(jumpPad) {
+		image_speed = 3;	
+		image_index = 1;
+	}
+	var soundfx = audio_play_sound(JumpPad, 1, false);
+	audio_sound_gain(soundfx, .25, 0);
+}
 
 //Handle jump
 if (jump) && (!paused){
@@ -126,3 +139,4 @@ if (gravDownPad && gravInverse) {
 	placeMeetingNum = 1;
 	imgYScale = abs(imgYScale);
 }
+
