@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "SpeedUp.wav",
-  "duration": 2.087041,
+  "soundFile": "SpeedBoost",
+  "duration": 0.0,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpeedUp",
+  "name": "SpeedBoost",
   "tags": [],
   "resourceType": "GMSound",
 }
