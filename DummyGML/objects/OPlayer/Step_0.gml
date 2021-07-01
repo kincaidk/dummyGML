@@ -40,7 +40,7 @@ if (jumpPad) {
 		image_index = 1;
 	}
 	var soundfx = audio_play_sound(JumpPad, 1, false);
-	audio_sound_gain(soundfx, .15, 0);
+	audio_sound_gain(soundfx, .5, 0);
 }
 
 //Handle jump
@@ -114,7 +114,7 @@ if (y > global.yDeathBottom || y < global.yDeathTop) {
 var boostPad = instance_place(x, y + vsp, OSpeedBoost);
 if (boostPad && !boosted) {
 	var boostSoundEffect = audio_play_sound(SpeedUp, 1, false);
-	audio_sound_gain(boostSoundEffect, 0.2, 0);
+	audio_sound_gain(boostSoundEffect, 0.3, 0);
 	
 	boosted = true;
 	boostValue = boostPad.XBoostValue;
@@ -135,7 +135,7 @@ if (boosted) {
 var gravUpPad = instance_place(x, y + vsp, OGravUp);
 if (gravUpPad && !gravInverse) {
 	var gravityChangeSoundEffect = audio_play_sound(BWUM_changeGrav, 1, false);
-	audio_sound_gain(gravityChangeSoundEffect, 0.6, 0);
+	audio_sound_gain(gravityChangeSoundEffect, 0.15, 0);
 	gravInverse = true;	
 	placeMeetingNum = -1;
 	imgYScale = -abs(imgYScale);
@@ -145,7 +145,7 @@ if (gravUpPad && !gravInverse) {
 var gravDownPad = instance_place(x, y + vsp, OGravDown);
 if (gravDownPad && gravInverse) {
 	var gravityChangeSoundEffect = audio_play_sound(BWUM_changeGrav, 1, false);
-	audio_sound_gain(gravityChangeSoundEffect, 0.6, 0);
+	audio_sound_gain(gravityChangeSoundEffect, 0.15, 0);
 	gravInverse = false;
 	placeMeetingNum = 1;
 	imgYScale = abs(imgYScale);
